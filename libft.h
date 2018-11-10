@@ -24,4 +24,5 @@ char	*ft_strncpy(char *dst, const char *src, size_t len);
 int		ft_isdigit(int c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
+
 #endif
