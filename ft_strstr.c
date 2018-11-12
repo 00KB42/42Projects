@@ -17,13 +17,13 @@ char	*ft_strstr(const char *haystack, const char *needle)
 	int		ndl_ctr;
 	int		hsk_ctr;
 	int		pat_match;
-	char	*ptr_match;
+	const char	*ptr_match;
 
 	ndl_ctr = 0;
 	hsk_ctr = 0;
 	pat_match = 0;
 	if (needle[ndl_ctr] == '\0')
-		return (haystack);
+		return ((char *)haystack);
 	while(haystack[hsk_ctr])
 	{
 		if (needle[ndl_ctr] == haystack[hsk_ctr])
