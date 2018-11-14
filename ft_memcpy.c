@@ -14,16 +14,17 @@
 
 void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 {
-	size_t	i;
-	const char	*ptr_src;
-	char	*ptr_dst;
-
-	ptr_dst = dst;
-	ptr_src = src;
-	i = 0;
-	while (ptr_src[i] && ptr_dst[i] && i < n)
-	{
-        ptr_src[i] = ptr_dst[i];
+    size_t	i;
+    const char	*ptr_src;
+    char	*ptr_dst;
+    
+    ptr_dst = dst;
+    ptr_src = src;
+    i = 0;
+    while (ptr_src[i] && ptr_dst[i] && i < n)
+    {
+        ptr_dst[i] = ptr_src[i];
         i++;
-	}
+    }
+    return (dst); //need to return original value of dst
 }
