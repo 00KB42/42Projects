@@ -36,8 +36,8 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 			}
 			if (needle[ndl_ctr] == '\0') // full pattern detected
 			{
-				ptr_match = &haystack[pat_match];
-				return ((char *)ptr_match); // is this appropriate (typecasting to char *)?
+				ptr_match = (char *)&haystack[pat_match]; // is this appropriate (typecasting to char *)?
+				return (ptr_match);
 			}
 			else
 				ndl_ctr = 0;
