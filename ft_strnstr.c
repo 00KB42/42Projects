@@ -14,10 +14,10 @@
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	int		ndl_ctr;
-	int		hsk_ctr;
-	int		pat_match;
-	char	*ptr_match;
+	size_t		ndl_ctr;
+	size_t		hsk_ctr;
+	size_t		pat_match;
+	char        *ptr_match;
 
 	ndl_ctr = 0;
 	hsk_ctr = 0;
