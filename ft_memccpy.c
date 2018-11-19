@@ -21,7 +21,7 @@ void    *ft_memccpy(void *restrict dst, const void *restrict src, int c, size_t 
     ptr_dst = dst;
     ptr_src = src;
     i = 0;
-    while (ptr_src[i] && ptr_dst[i] && i < n)
+    while (i < n)
     {
         if (ptr_src[i] == c)
         {
