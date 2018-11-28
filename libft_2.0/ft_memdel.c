@@ -2,5 +2,14 @@
 
 void ft_memdel(void **ap)
 {
-    return;
+    char **ptr;
+    int i;
+    
+    ptr = ap;
+    i = 0;
+    while (*ptr[i])
+    {
+        free(*ptr[i]);
+        i++;
+    }
 }
