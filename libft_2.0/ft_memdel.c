@@ -2,7 +2,7 @@
 
 void ft_memdel(void **ap)
 {
-    char **ptr;
+    char **ptr; //need to create non-char ptr? can we use void ptr directly?
     int i;
     
     ptr = ap;
