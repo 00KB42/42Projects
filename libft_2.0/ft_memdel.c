@@ -7,9 +7,9 @@ void ft_memdel(void **ap)
     
     ptr = ap;
     i = 0;
-    while (*ptr[i])
+    while (ptr)
     {
-        free(*ptr[i]);
-        i++;
+        free(ptr);
+        ptr = '\0'; // prevents unintended memory changes if we accidentally use ptr again
     }
 }
