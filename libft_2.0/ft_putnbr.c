@@ -7,9 +7,11 @@ void ft_putnbr(int n)
     i = 0;
     while (n > 10)
     {
-        ft_putnbr (n % 10);
-        write(1, &n, 1);
+        ft_putnbr (n / 10); // recursively divides until n is < 10
+        n = (n % 10) + '0'; // subsequent recursions, take remainder (last #)
+        write (1, &n, 1);
         return;
     }
+    n = (n % 10) + '0'; // first recursion, take remainder (last #)
     write (1, &n, 1);
 }

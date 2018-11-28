@@ -13,6 +13,7 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <stdlib.h>
+# include <unistd.h> // Verify w/ PDF
 
 void	*ft_memset(void *b, int c, size_t len);
 char	*ft_strdup(const char *s1);
@@ -43,5 +44,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strstr(const char *haystack, const char *needle);
+
+void    ft_putchar_fd(char c, int fd); // Section 2
 
 #endif
