@@ -2,14 +2,8 @@
 
 void ft_memdel(void **ap)
 {
-    char **ptr; //need to create non-char ptr? can we use void ptr directly?
-    int i;
-    
-    *ptr = *ap;
-    i = 0;
-    while (ptr)
-    {
-        free(ptr);
-        *ptr = '\0'; // prevents unintended memory changes if we accidentally use ptr again
-    }
+        free(*ap);
+        *ap = NULL; // prevents unintended memory changes if we accidentally use ptr again, previously had '\0' which gave an error since this is a character. Can also type 0 instead of NULL.
 }
+
+//Takes as a parameter the address of a memory area that needs to be freed with free(3), then puts the pointer to NULL.

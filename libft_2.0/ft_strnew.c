@@ -2,10 +2,10 @@
 
 char * ft_strnew(size_t size)
 {
-    int i;
-    char *ptr; //
+    size_t i;
+    char *ptr;
     ptr = (char*)malloc(size * (sizeof(char)));
-    if ((ptr == (char*)malloc(size * (sizeof(char)))))
+    if (ptr)
     {
         for (i = 0; i < size; i++)
             ptr[i] = '\0';

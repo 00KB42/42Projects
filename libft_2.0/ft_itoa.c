@@ -2,5 +2,11 @@
 
 char    *ft_itoa(int n)
 {
-    return;
+    
+    int i;
+    i = n;
+    char *ptr;
+    
+    ptr = (char *)malloc(sizeof(char));
+    return (ptr);
 }

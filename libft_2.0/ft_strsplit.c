@@ -2,8 +2,7 @@
 
 char ** ft_strsplit(char const *s, char c)
 {
-    /*
-    int i;
+    /*int i;
     int word_i;
     char **ptr;
     while (s[i]);
@@ -12,7 +11,12 @@ char ** ft_strsplit(char const *s, char c)
             ptr = (char**)malloc((word_i - 0) * sizeof(char));
         else
             for (i = 0; s[word] == c; i++)
-    return (ptr);
+    return (**ptr);
     */
-    return;
+    const char *blank;
+    blank = s;
+    char **ptr;
+    ptr = (char **)malloc(10 * sizeof(char));
+    **ptr = c;
+    return (ptr);
 }
