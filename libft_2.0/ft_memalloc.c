@@ -8,7 +8,7 @@ void    *ft_memalloc(size_t size)
     if (ptr = (size_t)malloc(size * (sizeof(int))))
     {
         for (i = 0; i < size; i++)
-            ptr[i] = '\0';
+            ptr[i] = 0;
     }
     else
         return (NULL);
