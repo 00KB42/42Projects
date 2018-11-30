@@ -13,21 +13,30 @@ char * ft_strtrim(char const *s)
     while (s[backward_i])
         backward_i++;
     backward_i--; // otherwise on NULL terminator
+    
+    
     if (s[forward_i] == ' ' || s[forward_i] == '\n' || s[forward_i] == '\t')
     {
-        while (s[forward_i] == ' ' || s[forward_i] == '\n' || s[forward_i] == '\t')
+        while (s[forward_i] && (s[forward_i] == ' ' || s[forward_i] == '\n' || s[forward_i] == '\t'))
             forward_i++;
     }
     else
-        return ((char *)s);
+        return ((char*)s);
+    
+    
+    
     if (s[backward_i] == ' ' || s[backward_i] == '\n' || s[backward_i] == '\t')
     {
-        while (s[backward_i] == ' ' || s[backward_i] == '\n' || s[backward_i] == '\t')
+        while (s[forward_i] && (s[backward_i] == ' ' || s[backward_i] == '\n' || s[backward_i] == '\t'))
             backward_i--;
     }
     else
-        return ((char *)s);
+        return ((char*)s);
+    
+    
     ptr = (char*)malloc(((backward_i + 2) - forward_i) * sizeof(char));
+   
+    
     if (ptr)
     {
         while (forward_i < (backward_i + 1))
