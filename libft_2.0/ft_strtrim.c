@@ -6,36 +6,49 @@ char * ft_strtrim(char const *s)
     int i;
     int forward_i;
     int backward_i;
+    int no_front_white;
+    int no_back_white;
+    int len;
     
     i = 0;
     forward_i = 0;
     backward_i = 0;
-    while (s[backward_i])
-        backward_i++;
-    backward_i--; // otherwise on NULL terminator
+    len = 0;
+    no_front_white = 0;
+    no_back_white = 0;
     
-    
-    if (s[forward_i] == ' ' || s[forward_i] == '\n' || s[forward_i] == '\t')
+    while (s[len] == ' ' || s[len] == '\n' || s[len] == '\t')
+        len ++;
+    if (s[len] == '\0')
     {
-        while (s[forward_i] && (s[forward_i] == ' ' || s[forward_i] == '\n' || s[forward_i] == '\t'))
-            forward_i++;
+        ptr = (char *)malloc(1 * sizeof(char));
+        ptr[0] = '\0';
+        return (ptr);
     }
-    else
-        return ((char*)s);
+    len = 0;
+    while (s[len]) // using to acquire length
+        len++;
+    len--; // otherwise on NULL terminator
     
+    while (s[forward_i] && (s[forward_i] == ' ' || s[forward_i] == '\n' || s[forward_i] == '\t'))
+        forward_i++;
     
+    if (forward_i == 0)
+        no_front_white = 1;
     
-    if (s[backward_i] == ' ' || s[backward_i] == '\n' || s[backward_i] == '\t')
-    {
-        while (s[forward_i] && (s[backward_i] == ' ' || s[backward_i] == '\n' || s[backward_i] == '\t'))
-            backward_i--;
-    }
-    else
-        return ((char*)s);
+    //after null-terminator, are characters white spaces?
     
+    backward_i = len;
+    while (s[backward_i] && (s[backward_i] == ' ' || s[backward_i] == '\n' || s[backward_i] == '\t'))
+        backward_i--;
+    
+    if (backward_i == len)
+        no_back_white = 1;
+    
+    if (no_front_white == 1 && no_back_white == 1)
+        return ((char *) s);
     
     ptr = (char*)malloc(((backward_i + 2) - forward_i) * sizeof(char));
-   
     
     if (ptr)
     {
@@ -49,5 +62,5 @@ char * ft_strtrim(char const *s)
         return (ptr);
     }
     else
-        return (NULL);
+        return (0);
 }

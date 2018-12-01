@@ -12,6 +12,8 @@
 
 #include "libft.h"
 
+//issue with overlapping strings and dst = src + 1 (and they reverse dst and src parameters)
+
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	size_t      i;
