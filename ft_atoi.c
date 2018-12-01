@@ -16,21 +16,31 @@ int	ft_atoi(const char *str)
 {
 	int	i;
 	int	int_nbr;
+    int frst_nmbr;
 
 	i = 0;
 	int_nbr = 0;
+    frst_nmbr = 0;
 	while (str[i]) // check if string only containers numbers
 	{
 		if (!(str[i] <= 0 && str[i] >= 9))
-			return (0);
-		i++;
+        {
+            i--;
+            frst_nmbr = i;
+        }
+        else
+            i++;
 	}
 	i = 0;
-	while (str[i])
+    if (frst_nmbr < 0)
+        return (0);
+	while (str[i] && i < frst_nmbr)
 	{
 		int_nbr = (int_nbr * 10);
-		int_nbr = (int_nbr + (str[i] - 48));
+		int_nbr = (int_nbr + (str[i] - 0));
 		i++;
 	}
 	return (int_nbr);
 }
+
+//traverse white space and first number...
