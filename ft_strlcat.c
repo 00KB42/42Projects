@@ -12,8 +12,6 @@
 
 #include "libft.h"
 
-//what if size less than dst str? **
-
 size_t    ft_strlcat(char *restrict dst, const char *restrict src, size_t size)
 {
     size_t    src_ctr;
@@ -37,9 +35,9 @@ size_t    ft_strlcat(char *restrict dst, const char *restrict src, size_t size)
         dst_ctr++;
     }
     dst_orig = dst_ctr;
-    len = (size - dst_ctr - 1);
     if (dst_ctr > size)
-        size = dst_orig;
+        dst_orig = size;
+    len = (size - dst_ctr - 1);
     if ((int)len < 0)
     {
        trunc_dtct = src_len + dst_orig;
@@ -52,28 +50,7 @@ size_t    ft_strlcat(char *restrict dst, const char *restrict src, size_t size)
         src_ctr++;
     }
     dst[dst_ctr] = '\0';
-    trunc_dtct = src_len + dst_orig;
+    trunc_dtct = src_len + dst_orig; 
     return (trunc_dtct);
 }
-/*
-char	*ft_strcat(char *restrict s1, const char *restrict s2)
-{
-    size_t	src_ctr;
-    size_t	dst_ctr;
-    
-    src_ctr = 0;
-    dst_ctr = 0;
-    while (s1[src_ctr])
-    {
-        src_ctr++;
-    }
-    while (s2[dst_ctr])
-    {
-        s1[src_ctr] = s2[dst_ctr];
-        dst_ctr++;
-        src_ctr++;
-    }
-    s1[src_ctr] = '\0';
-    return (s1);
-}
-*/
+
