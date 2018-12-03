@@ -38,9 +38,11 @@ size_t    ft_strlcat(char *restrict dst, const char *restrict src, size_t size)
     }
     dst_orig = dst_ctr;
     len = (size - dst_ctr - 1);
+    if (dst_ctr > size)
+        size = dst_orig;
     if ((int)len < 0)
     {
-       trunc_dtct = src_ctr + dst_orig;
+       trunc_dtct = src_len + dst_orig;
        return (trunc_dtct);
     }
     while (src[src_ctr] && src_ctr < (len))
