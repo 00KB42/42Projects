@@ -54,5 +54,3 @@ int    ft_atoi(const char *str)
     else
         return (int_nbr);
 }
-
-// if it hits + or -, it expects next to be number, if not, its over...
