@@ -1,7 +1,6 @@
 #include "libft.h"
 
 
-
 char ** ft_strsplit(char const *s, char c)
 {
     int i;
@@ -43,14 +42,22 @@ char ** ft_strsplit(char const *s, char c)
             str_ct++;
         }
     }
-    i = 0;
+    //i = 0;
+    if (str_ct == 0)
+    {
+        array = (char**)malloc(1 * sizeof(char*));
+        for(i=0;i<1;i++)
+            array[i]=(char *)malloc((word_len + 1) * sizeof(char));
+        array[y][x] = '\0';
+        return (array);
+    }
     array = (char**)malloc(str_ct * sizeof(char*));
     for(i=0;i<str_ct;i++)
         array[i]=(char *)malloc((word_len + 1) * sizeof(char));
     i = 0;
     while (s[i]) // number of strings and longest str_len
     {
-        if (s[i] == c)
+        if (s[i] == c && s[i])
         {
             i++;
         }
@@ -66,9 +73,11 @@ char ** ft_strsplit(char const *s, char c)
                 i++;
                 x++; //same row and string
             }
+            i++;
             array[y][x] = '\0';
             y++; // moving down one row
         }
     }
     return(array);
 }
+
