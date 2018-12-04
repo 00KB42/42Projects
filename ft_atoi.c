@@ -25,36 +25,34 @@ int    ft_atoi(const char *str)
     frst_nmbr = 0;
     last_nmbr = 0;
     is_neg = 0;
-    while (str[i] && last_nmbr == 0) // check if string only containers numbers
+    
+    while (str[i] == ' ' || str[i] == '\f' || str[i] == '\n' || str[i] == '\r' || str[i] == '\t' || str[i] == '\v')
+        i++;
+    if (str[i] == '-' && str[i + 1] >= '0' && str[i + 1] <= '9')
     {
-        if (str[i] >= '0' && str[i] <= '9')
-        {
-            frst_nmbr = i;
-            while  (str[i] >= '0' && str[i] <= '9')
-                i++;
-            if ((!str[frst_nmbr]) && frst_nmbr == i - 1 ) // same number
-                last_nmbr = (i - 1);
-            else
-                last_nmbr = i;
-        }
-        else
-            i++;
-    }
-    if (frst_nmbr == 0 && last_nmbr == 0 && i != 0)
-        return (0);
-    if (str[frst_nmbr - 1] == '-')
         is_neg = 1;
-    while (str[frst_nmbr] && frst_nmbr < last_nmbr)
+        i++;
+    }
+    if (str[i] == '+' && str[i + 1] >= '0' && str[i + 1] <= '9')
+    {
+        is_neg = 0;
+        i++;
+    }
+    if ((str[i] == '+' || str[i] == '-') && !(str[i + 1] >= '0' && str[i + 1] <= '9'))
+        return (0);
+    
+    while (str[i] && str[i] >= '0' && str[i] <= '9')
     {
         int_nbr = (int_nbr * 10);
-        int_nbr = (int_nbr + (str[frst_nmbr] - '0'));
-        frst_nmbr++;
+        int_nbr = (int_nbr + (str[i] - '0'));
+        i++;
     }
     if (is_neg == 1)
     {
-        int_nbr = (int_nbr * -1);
-        return (int_nbr);
+        return (-int_nbr);
     }
     else
         return (int_nbr);
 }
+
+// if it hits + or -, it expects next to be number, if not, its over...
