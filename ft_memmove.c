@@ -28,5 +28,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
         ptr_dst[i] = ptr_src[i];
         i++;
 	}
-    return (dst); //need to return original value of dst
+    return (dst);
 }
+
+// can move entire src string to other area then copy it over....do you need to malloc it?
+//

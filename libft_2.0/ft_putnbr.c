@@ -7,7 +7,7 @@ void ft_putnbr(int n)
     i = 0;
     if (n == -2147483648)
     {
-        write(1, "-2147483648", 12);
+        write(1, "-2147483648", 11);
         return;
     }
     if (n < 0)
