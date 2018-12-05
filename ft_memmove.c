@@ -12,8 +12,6 @@
 
 #include "libft.h"
 
-//issue with overlapping strings and dst = src + 1 (and they reverse dst and src parameters)
-
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	size_t      i;
@@ -23,6 +21,14 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	i = 0;
 	ptr_dst = dst;
 	ptr_src = src;
+    if (ptr_src < ptr_dst)
+    {
+        while (len != 0)
+        {
+            ptr_dst[len - 1] = ptr_src[len - 1];
+            len--;
+        }
+    }
 	while (i < len)
 	{
         ptr_dst[i] = ptr_src[i];
@@ -30,6 +36,3 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	}
     return (dst);
 }
-
-// can move entire src string to other area then copy it over....do you need to malloc it?
-//
