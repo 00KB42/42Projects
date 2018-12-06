@@ -15,6 +15,13 @@
 # include <stdlib.h>
 # include <unistd.h> // Verify w/ PDF
 
+typedef struct s_list
+{
+    void            *content;
+    size_t          content_size;
+    struct s_list   *next;
+}                   t_list;
+
 // Part 1 Funtions
 
 void	*ft_memset(void *b, int c, size_t len);
