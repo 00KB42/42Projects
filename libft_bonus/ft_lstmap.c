@@ -19,6 +19,7 @@ t_list * ft_lstmap(t_list *lst, t_list * (*f)(t_list *elem))
     while (fk < i)
     {
         ptr[fk].next = &ptr[fk+1];
+        ptr[fk].content = lst[fk].content;
         fk++;
     }
     ptr[fk-1].next = NULL;
@@ -28,15 +29,13 @@ t_list * ft_lstmap(t_list *lst, t_list * (*f)(t_list *elem))
     while (lst->next != NULL )
     {
         f(lst); // how to refer to each t_list elem? (do something)
-        ptr->content = lst->content;
-        
+        ptr[i].content = lst->content;
         //ptr->next = lst->next;
         lst = lst->next; //(move ot next link)
-        ptr = ptr->next;
+        i++; // ptr ctr plus
     }
     f(lst); // how to refer to each t_list elem? (do something)
-    ptr->content = lst->content;
+    ptr[i].content = lst->content;
     return (ptr);
 }
-
 //https://goo.gl/MKBCmA
