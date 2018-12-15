@@ -2,16 +2,41 @@
 
 t_list * ft_lstmap(t_list *lst, t_list * (*f)(t_list *elem))
 {
-    while (lst->next != NULL)
+    int i;
+    i = 0;
+    t_list *ptr;
+    ptr = lst;
+    while (ptr->next != NULL)
+    {
+        i++;
+        ptr = ptr->next;
+    }
+    i++;
+    ptr = lst;
+    ptr = (struct s_list*)malloc(i * sizeof(t_list));
+    int fk;
+    fk = 0;
+    while (fk < i)
+    {
+        ptr[fk].next = &ptr[fk+1];
+        fk++;
+    }
+    ptr[fk-1].next = NULL;
+    i = 0;
+    if (ptr == 0)
+        return NULL;
+    while (lst->next != NULL )
     {
         f(lst); // how to refer to each t_list elem? (do something)
-        lst = (struct s_list*)malloc(sizeof(t_list));
+        ptr->content = lst->content;
+        
+        //ptr->next = lst->next;
         lst = lst->next; //(move ot next link)
+        ptr = ptr->next;
     }
     f(lst); // how to refer to each t_list elem? (do something)
-    lst = (struct s_list*)malloc(sizeof(t_list));
-    lst = lst->next; //(move ot next link)
-    return (lst);
+    ptr->content = lst->content;
+    return (ptr);
 }
 
-
+//https://goo.gl/MKBCmA
