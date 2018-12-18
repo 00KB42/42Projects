@@ -3,6 +3,7 @@
 t_list * ft_lstmap(t_list *lst, t_list * (*f)(t_list *elem))
 {
     int i;
+    int ctr;
     i = 0;
     t_list *ptr;
     ptr = lst;
@@ -14,27 +15,23 @@ t_list * ft_lstmap(t_list *lst, t_list * (*f)(t_list *elem))
     i++;
     ptr = lst;
     ptr = (struct s_list*)malloc(i * sizeof(t_list));
-    int fk;
-    fk = 0;
-    while (fk < i)
-    {
-        ptr[fk].next = &ptr[fk+1];
-        ptr[fk].content = lst[fk].content;
-        fk++;
-    }
-    ptr[fk-1].next = NULL;
-    i = 0;
-    if (ptr == 0)
+    if (!ptr)
         return NULL;
+    ctr = 0;
+    while (ctr < i)
+    {
+        ptr[ctr].next = &ptr[ctr+1];
+        ptr[ctr].content = lst[ctr].content;
+        ctr++;
+    }
+    ptr[ctr-1].next = NULL;
+    i = 0;
     while (lst->next != NULL )
     {
-        f(lst);
-        ptr[i].content = lst->content;
+        ptr[i].content = (f(lst))->content;
         lst = lst->next;
         i++;
     }
-    f(lst);
-    ptr[i].content = lst->content;
+    ptr[i].content = (f(lst))->content;
     return (ptr);
 }
-//https://goo.gl/MKBCmA
