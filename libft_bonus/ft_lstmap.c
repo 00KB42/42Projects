@@ -28,13 +28,12 @@ t_list * ft_lstmap(t_list *lst, t_list * (*f)(t_list *elem))
         return NULL;
     while (lst->next != NULL )
     {
-        f(lst); // how to refer to each t_list elem? (do something)
+        f(lst);
         ptr[i].content = lst->content;
-        //ptr->next = lst->next;
-        lst = lst->next; //(move ot next link)
-        i++; // ptr ctr plus
+        lst = lst->next;
+        i++;
     }
-    f(lst); // how to refer to each t_list elem? (do something)
+    f(lst);
     ptr[i].content = lst->content;
     return (ptr);
 }
