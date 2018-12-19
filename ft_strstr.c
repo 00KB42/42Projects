@@ -14,9 +14,9 @@
 
 char	*ft_strstr(const char *haystack, const char *needle)
 {
-	int		ndl_ctr;
-	int		hsk_ctr;
-	int		pat_match;
+	int			ndl_ctr;
+	int			hsk_ctr;
+	int			pat_match;
 	const char	*ptr_match;
 
 	ndl_ctr = 0;

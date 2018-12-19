@@ -12,28 +12,28 @@
 
 #include "libft.h"
 
-void    *ft_memccpy(void *restrict dst, const void *restrict src, int c, size_t n)
+void	*ft_memccpy(void *restrict dst, const void *restrict src, int c, size_t n) //remove restrict to pass norme
 {
-    size_t      i;
-    const char  *ptr_src;
-    char        *ptr_dst;
-    
-    ptr_dst = dst;
-    ptr_src = src;
-    i = 0;
-    while (i < n)
-    {
-        if (ptr_src[i] == c)
-        {
-            ptr_dst[i] = ptr_src[i];
-            dst = &dst[i + 1];
-            return (dst);
-        }
-        else
-        {
-            ptr_dst[i] = ptr_src[i];
-            i++;
-        }
-    }
-    return (NULL);
+	size_t		i;
+	const char	*ptr_src;
+	char		*ptr_dst;
+
+	ptr_dst = dst;
+	ptr_src = src;
+	i = 0;
+	while (i < n)
+	{
+		if (ptr_src[i] == c)
+		{
+			ptr_dst[i] = ptr_src[i];
+			dst = &dst[i + 1];
+			return (dst);
+		}
+		else
+		{
+			ptr_dst[i] = ptr_src[i];
+			i++;
+		}
+	}
+	return (NULL);
 }
