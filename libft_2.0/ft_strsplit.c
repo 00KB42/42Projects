@@ -21,9 +21,7 @@ char	**ft_strsplit(char const *s, char c)
 	while (s[i]) // number of strings and longest str_len
 	{
 		if (s[i] == c)
-		{
 			i++;
-		}
 		else //new string creation
 		{
 			ctr_1 = i;
@@ -47,9 +45,7 @@ char	**ft_strsplit(char const *s, char c)
 	while (s[i]) // number of strings and longest str_len
 	{
 		if (s[i] == c && s[i])
-		{
 			i++;
-		}
 		else //new string creation
 		{
 			x = 0; // reset str to index 0

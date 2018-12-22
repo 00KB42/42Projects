@@ -19,9 +19,7 @@ char	*ft_itoa(int n)
 		return (str);
 	}
 	if (n == 0)
-	{
 		ctr++; // space for zero
-	}
 	if (n < 0)
 	{
 		neg = 1;

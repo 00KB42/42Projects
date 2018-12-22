@@ -12,7 +12,6 @@ char	*ft_strtrim(char const *s)
 	forward_i = 0;
 	backward_i = 0;
 	len = 0;
-	
 	while (s[len] == ' ' || s[len] == '\n' || s[len] == '\t')
 		len ++;
 	if (s[len] == '\0')
@@ -22,21 +21,14 @@ char	*ft_strtrim(char const *s)
 		return (ptr);
 	}
 	len = 0;
-	while (s[len]) // using to acquire length
+	while (s[len] + 1) // using to acquire length
 		len++;
-	len--; // otherwise on NULL terminator
-	
 	while (s[forward_i] && (s[forward_i] == ' ' || s[forward_i] == '\n' || s[forward_i] == '\t'))
-		forward_i++;
-	
-	//after null-terminator, are characters white spaces?
-	
+		forward_i++; 	//after null-terminator, are characters white spaces?
 	backward_i = len;
 	while (s[backward_i] && (s[backward_i] == ' ' || s[backward_i] == '\n' || s[backward_i] == '\t'))
 		backward_i--;
-
 	ptr = (char*)malloc(((backward_i + 2) - forward_i) * sizeof(char));
-	
 	if (ptr)
 	{
 		while (forward_i < (backward_i + 1))
