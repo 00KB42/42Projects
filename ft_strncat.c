@@ -20,9 +20,7 @@ char	*ft_strncat(char *restrict s1, const char *restrict s2, size_t n)
 	src_ctr = 0;
 	dst_ctr = 0;
 	while (s1[src_ctr])
-	{
 		src_ctr++;
-	}
 	while (s2[dst_ctr] && dst_ctr < n)
 	{
 		s1[src_ctr] = s2[dst_ctr];
