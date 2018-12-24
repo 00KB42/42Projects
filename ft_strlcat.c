@@ -39,13 +39,16 @@ size_t	ft_strlcat(char *restrict dst, const char *restrict src, size_t size)
 		nbr_cpyd = src_len + dst_orig; // if size is less than len of dst, add len of src and dst_totrav
 		return (nbr_cpyd);
 	}
-	while (src[i] && i < src_to_cpy)
+	if (src[i] && i < src_to_cpy)
 	{
-		dst[dst_len] = src[i];
-		dst_len++;
-		i++;
+		while (src[i] && i < src_to_cpy)
+		{
+			dst[dst_len] = src[i];
+			dst_len++;
+			i++;
+		}
+		dst[dst_len] = '\0';
 	}
-	dst[dst_len] = '\0';
 	nbr_cpyd = src_len + dst_orig; // if size not goofy, you're getting length of src you coied plus length of dst copied..
 	return (nbr_cpyd);
 }

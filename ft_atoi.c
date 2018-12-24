@@ -16,14 +16,10 @@ int	ft_atoi(const char *str)
 {
 	int	i;
 	int	int_nbr;
-	int	frst_nmbr;
-	int	last_nmbr;
 	int	is_neg;
 
 	i = 0;
 	int_nbr = 0;
-	frst_nmbr = 0;
-	last_nmbr = 0;
 	is_neg = 0;
 	while (str[i] == ' ' || str[i] == '\f' || str[i] == '\n' || str[i] == '\r' || str[i] == '\t' || str[i] == '\v')
 		i++;
