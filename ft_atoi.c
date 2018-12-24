@@ -43,6 +43,5 @@ int	ft_atoi(const char *str)
 	}
 	if (is_neg == 1)
 		return (-int_nbr);
-	else
-		return (int_nbr);
+	return (int_nbr);
 }
