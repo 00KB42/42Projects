@@ -14,39 +14,39 @@
 
 size_t	ft_strlcat(char *restrict dst, const char *restrict src, size_t size)
 {
-	size_t		src_ctr;
-	size_t		dst_ctr;
-	size_t		len;
-	size_t		dst_orig;
-	size_t		trunc_dtct;
+	size_t		dst_len;
+	size_t		src_to_cpy;
+	size_t		nbr_cpyd;
 	size_t		src_len;
+	size_t		dst_orig;
+	size_t		i;
 
-	src_ctr = 0;
-	dst_ctr = 0;
-	len = 0;
-	dst_orig = 0;
-	trunc_dtct = 0;
 	src_len = 0;
-	while (src[src_len])
-		src_len++;
-	while (dst[dst_ctr])
-		dst_ctr++;
-	dst_orig = dst_ctr;
-	if (dst_ctr > size)
+	i = 0;
+	dst_len = 0;
+	src_to_cpy = 0;
+	nbr_cpyd = 0;
+	dst_orig = 0;
+	
+	src_len = ft_strlen(src);
+	dst_len = ft_strlen(dst);
+	dst_orig = dst_len;
+	if (size < dst_len)
 		dst_orig = size;
-	len = (size - dst_ctr - 1);
-	if ((int)len < 0)
+	src_to_cpy = (size - dst_len - 1);
+	if ((int)src_to_cpy < 0)
 	{
-		trunc_dtct = src_len + dst_orig;
-		return (trunc_dtct);
+		nbr_cpyd = src_len + dst_orig; // if size is less than len of dst, add len of src and dst_totrav
+		return (nbr_cpyd);
 	}
-	while (src[src_ctr] && src_ctr < (len))
+	while (src[i] && i < src_to_cpy)
 	{
-		dst[dst_ctr] = src[src_ctr];
-		dst_ctr++;
-		src_ctr++;
+		dst[dst_len] = src[i];
+		dst_len++;
+		i++;
 	}
-	dst[dst_ctr] = '\0';
-	trunc_dtct = src_len + dst_orig;
-	return (trunc_dtct);
+	dst[dst_len] = '\0';
+	nbr_cpyd = src_len + dst_orig; // if size not goofy, you're getting length of src you coied plus length of dst copied..
+	return (nbr_cpyd);
 }
+
