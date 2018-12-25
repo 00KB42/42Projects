@@ -3,23 +3,23 @@
 char	*ft_itoa(int n)
 {
 	char *ptr;
-	int i;
 	int ctr;
 	int cpy;
 	int neg;
 	
-	i = 0;
 	ctr = 0;
 	cpy = 0;
 	neg = 0;
 	if (n == -2147483648)
 	{
-		char *str;
-		str = "-2147483648";
-		return (str);
+		ptr = "-2147483648";
+		return (ptr);
 	}
 	if (n == 0)
-		ctr++; // space for zero
+	{
+		ptr = "0";
+		return (ptr);
+	}
 	if (n < 0)
 	{
 		neg = 1;
@@ -35,8 +35,6 @@ char	*ft_itoa(int n)
 	ptr = (char*)malloc((ctr + 1) * sizeof(char));
 	ptr[ctr] = '\0';
 	ctr--;
-	if (n == 0)
-		ptr[ctr] = (n % 10) + '0';
 	while (n > 0)
 	{
 		ptr[ctr] = (n % 10) + '0';
