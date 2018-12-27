@@ -34,12 +34,10 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 			}
 			if (needle[ndl_ctr] == '\0' && hsk_ctr < len) // full pattern detected and within appropriate len
 				return ((char *)ptr_match); // is this appropriate (typecasting to char *)
+			ndl_ctr = 0; // reset needle finder
 		}
 		else
-		{
-			ndl_ctr = 0;
 			hsk_ctr++;
-		}
 	}
 	return (NULL);
 }

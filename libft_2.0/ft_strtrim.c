@@ -12,7 +12,6 @@ char * ft_strtrim(char const *s)
     forward_i = 0;
     backward_i = 0;
     len = 0;
-    
     while (s[len] == ' ' || s[len] == '\n' || s[len] == '\t')
         len ++;
     if (s[len] == '\0')

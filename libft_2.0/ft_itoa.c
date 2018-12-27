@@ -2,29 +2,25 @@
 
 char	*ft_itoa(int n)
 {
-	char *ptr;
-	int ctr;
-	int cpy;
-	int neg;
+	char	*ptr;
+	int		ctr;
+	int		cpy;
+	int		neg;
 	
 	ctr = 0;
 	cpy = 0;
 	neg = 0;
-	if (n == -2147483648)
-	{
-		ptr = "-2147483648";
-		return (ptr);
-	}
 	if (n == 0)
-	{
 		ptr = "0";
+	if (n == -2147483648)
+		ptr = "-2147483648";
+	if (n == 0 || n == -2147483648)
 		return (ptr);
-	}
 	if (n < 0)
 	{
 		neg = 1;
 		n = (n * -1);
-		ctr++; // space for negative
+		ctr++; // space for negative symbol
 	}
 	cpy = n;
 	while (cpy > 0)
@@ -34,14 +30,13 @@ char	*ft_itoa(int n)
 	}
 	ptr = (char*)malloc((ctr + 1) * sizeof(char));
 	ptr[ctr] = '\0';
-	ctr--;
 	while (n > 0)
 	{
-		ptr[ctr] = (n % 10) + '0';
+		ptr[ctr - 1] = (n % 10) + '0';
 		n =  n / 10;
 		ctr--;
 	}
 	if (neg == 1)
-		ptr[ctr] = '-';
+		ptr[ctr - 1] = '-';
 	return (ptr);
 }

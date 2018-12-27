@@ -30,7 +30,3 @@ char	*ft_strcat(char *restrict s1, const char *restrict s2)
 	s1[src_ctr] = '\0';
 	return (s1);
 }
-
-//s1 iterated to end
-//start s2[0] then write to s1[end] ... going forward and then
-// cap s1 at the end...

@@ -33,13 +33,11 @@ char	*ft_strstr(const char *haystack, const char *needle)
 				hsk_ctr++;
 			}
 			if (needle[ndl_ctr] == '\0') // full pattern detected
-				return ((char *)ptr_match); // is this appropriate (typecasting to char *)
+				return ((char *)ptr_match); // is this appropriate (typecasting to char *
+			ndl_ctr = 0; //reset needle finder
 		}
 		else
-		{
-			ndl_ctr = 0;
 			hsk_ctr++;
-		}
 	}
 	return (NULL);
 }
