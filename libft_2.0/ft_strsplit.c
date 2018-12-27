@@ -27,7 +27,7 @@ char	**ft_strsplit(char const *s, char c)
 		}
 	array = (char**)malloc((str_ct + 1) * sizeof(char*));
 	i = 0;
-	while (s[j]) //srt_ctr function
+	while (s[j])
 		if (s[j] == c)
 			j++;
 		else 
@@ -39,28 +39,18 @@ char	**ft_strsplit(char const *s, char c)
 			}
 			array[i]=(char *)malloc((word_len + 1) * sizeof(char));
 			i++;
-			word_len = 0;
-		}
-	i = 0;
-	while (s[i]) // number of strings and longest str_len
-	{
-		if (s[i] == c && s[i])
-			i++;
-		else //new string creation
-		{
-			x = 0; // reset str to index 0
-			while (s[i] != c && s[i])
+			while (word_len > 0)
 			{
-				array[y][x] = s[i];
-				i++;
+				array[y][x] = s[j - word_len];
 				x++; //same row and string
+				word_len--;
 			}
+			word_len = 0;
 			array[y][x] = '\0';
+			x = 0;
 			y++; // moving down one row
 		}
-	}
 	array[y] = NULL;
 	return(array);
 }
-
 
