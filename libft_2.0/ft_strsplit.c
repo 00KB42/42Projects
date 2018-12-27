@@ -39,12 +39,11 @@ char	**ft_strsplit(char const *s, char c)
 	}
 	array = (char**)malloc((str_ct + 1) * sizeof(char*));
 	i = 0;
-	while(i < str_ct)
+	while(i <= str_ct)
 	{
 		array[i]=(char *)malloc((word_len + 1) * sizeof(char));
 		i++;
 	}
-	array[i]=(char*)malloc((1) * sizeof(char));
 	i = 0;
 	while (s[i]) // number of strings and longest str_len
 	{
