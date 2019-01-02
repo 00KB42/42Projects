@@ -23,7 +23,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	i = 0;
 	if (n == 0)
 		return (0);
-	while (ptr_s1[i] == ptr_s2[i] && i < (n - 1)) //(-1 to account for being size, not len)
+	while (ptr_s1[i] == ptr_s2[i] && i < (n - 1))
 		i++;
 	return ((unsigned char)ptr_s1[i] - (unsigned char)ptr_s2[i]);
 }

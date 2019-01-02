@@ -26,5 +26,5 @@ void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 		ptr_dst[i] = ptr_src[i];
 		i++;
 	}
-	return (dst); //need to return original value of dst
+	return (dst);
 }
