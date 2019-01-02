@@ -2,9 +2,9 @@
 
 char	*ft_strmap(char const *s, char (*f)(char))
 {
-	int i;
-	int j;
-	char *ptr;
+	int		i;
+	int		j;
+	char	*ptr;
 	
 	i = 0;
 	j = 0;

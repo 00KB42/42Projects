@@ -2,9 +2,9 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int i;
-	int j;
-	char *ptr;
+	char	*ptr;
+	int		i;
+	int		j;
 	
 	i = 0;
 	j = 0;
