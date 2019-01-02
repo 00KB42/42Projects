@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kbrown <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/01/02 10:09:56 by kbrown            #+#    #+#             */
+/*   Updated: 2019/01/02 10:11:06 by kbrown           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 void	*ft_memalloc(size_t size)
 {
 	size_t i;
-	size_t *ptr; // how do we account for other non-int variable types?
+	size_t *ptr;
 
 	i = 0;
-	ptr = (size_t *)malloc(size * (sizeof(int))); //typecasting malloc because it returns void*
+	ptr = (size_t *)malloc(size * (sizeof(int)));
 	if (ptr)
 	{
 		while (i < size)
@@ -14,8 +26,12 @@ void	*ft_memalloc(size_t size)
 			ptr[i] = 0;
 			i++;
 		}
-		return(ptr);
+		return (ptr);
 	}
 	else
 		return (NULL);
 }
+/*
+**  how do we account for other non-int variable types?
+**  size of (int)?
+*/

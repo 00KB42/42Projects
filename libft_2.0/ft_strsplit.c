@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kbrown <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/01/02 10:19:49 by kbrown            #+#    #+#             */
+/*   Updated: 2019/01/02 10:19:50 by kbrown           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int	ft_wrd_ctr (char const *s, char c)
+int		ft_wrd_ctr(char const *s, char c)
 {
-	int i;
-	int wrd_cnt;
+	int		i;
+	int		wrd_cnt;
 
 	i = 0;
 	wrd_cnt = 0;
@@ -11,7 +23,7 @@ int	ft_wrd_ctr (char const *s, char c)
 	{
 		if (s[i] == c)
 			i++;
-		else 
+		else
 		{
 			wrd_cnt++;
 			while (s[i] && s[i] != c)
@@ -23,11 +35,11 @@ int	ft_wrd_ctr (char const *s, char c)
 
 char	**ft_strsplit(char const *s, char c)
 {
-	int i;
-	int j;
-	int start;
-	int len;
-	char **array;
+	int		i;
+	int		j;
+	int		start;
+	int		len;
+	char	**array;
 
 	start = 0;
 	len = 0;
@@ -39,7 +51,7 @@ char	**ft_strsplit(char const *s, char c)
 		if (s[i] == c)
 			i++;
 		else
-		{ 
+		{
 			start = i;
 			while (s[i] && s[i] != c)
 			{
@@ -52,6 +64,5 @@ char	**ft_strsplit(char const *s, char c)
 		}
 	}
 	array[j] = NULL;
-	return(array);
+	return (array);
 }
-

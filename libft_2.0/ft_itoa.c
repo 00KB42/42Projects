@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kbrown <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/01/02 10:08:21 by kbrown            #+#    #+#             */
+/*   Updated: 2019/01/02 10:08:41 by kbrown           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_itoa(int n)
@@ -6,7 +18,7 @@ char	*ft_itoa(int n)
 	int		ctr;
 	int		cpy;
 	int		neg;
-	
+
 	ctr = 0;
 	cpy = 0;
 	neg = 0;
@@ -20,12 +32,12 @@ char	*ft_itoa(int n)
 	{
 		neg = 1;
 		n = (n * -1);
-		ctr++; // space for negative symbol
+		ctr++;
 	}
 	cpy = n;
 	while (cpy > 0)
 	{
-		cpy =  cpy / 10;
+		cpy = cpy / 10;
 		ctr++;
 	}
 	ptr = (char*)malloc((ctr + 1) * sizeof(char));
@@ -33,7 +45,7 @@ char	*ft_itoa(int n)
 	while (n > 0)
 	{
 		ptr[ctr - 1] = (n % 10) + '0';
-		n =  n / 10;
+		n = n / 10;
 		ctr--;
 	}
 	if (neg == 1)

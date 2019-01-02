@@ -1,37 +1,49 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kbrown <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/01/02 10:20:06 by kbrown            #+#    #+#             */
+/*   Updated: 2019/01/02 10:20:08 by kbrown           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_strtrim(char const *s)
 {
 	char	*ptr;
 	int		i;
-	int		forward_i;
-	int		backward_i;
+	int		for_i;
+	int		back_i;
 	int		len;
-	
+
 	i = 0;
-	forward_i = 0;
-	backward_i = 0;
+	for_i = 0;
+	back_i = 0;
 	len = 0;
 	while (s[len] == ' ' || s[len] == '\n' || s[len] == '\t')
-		len ++;
+		len++;
 	if (s[len] == '\0')
 	{
 		ptr = (char *)malloc(1 * sizeof(char));
 		ptr[0] = '\0';
 		return (ptr);
 	}
-	backward_i = (ft_strlen(s) - 1);
-	while (s[forward_i] && (s[forward_i] == ' ' || s[forward_i] == '\n' || s[forward_i] == '\t'))
-		forward_i++;
-	while (s[backward_i] && (s[backward_i] == ' ' || s[backward_i] == '\n' || s[backward_i] == '\t'))
-		backward_i--;
-	ptr = (char*)malloc(((backward_i + 2) - forward_i) * sizeof(char));
+	back_i = (ft_strlen(s) - 1);
+	while (s[for_i] && (s[for_i] == ' ' || s[for_i] == '\n' || s[for_i] == '\t'))
+		for_i++;
+	while (s[back_i] && (s[back_i] == ' ' || s[back_i] == '\n' || s[back_i] == '\t'))
+		back_i--;
+	ptr = (char*)malloc(((back_i + 2) - for_i) * sizeof(char));
 	if (ptr)
 	{
-		while (forward_i < (backward_i + 1))
+		while (for_i < (back_i + 1))
 		{
-			ptr[i] = s[forward_i];
-			forward_i++;
+			ptr[i] = s[for_i];
+			for_i++;
 			i++;
 		}
 		ptr[i] = '\0';
