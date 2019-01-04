@@ -16,39 +16,27 @@ char	*ft_strtrim(char const *s)
 {
 	char	*ptr;
 	int		i;
-	int		for_i;
-	int		back_i;
-	int		len;
+	int		fwd;
+	int		bwd;
 
 	i = 0;
-	for_i = 0;
-	back_i = 0;
-	len = 0;
-	while (s[len] == ' ' || s[len] == '\n' || s[len] == '\t')
-		len++;
-	if (s[len] == '\0')
+	fwd = 0;
+	bwd = (ft_strlen(s) - 1);
+	while (s[fwd] && (s[fwd] == ' ' || s[fwd] == '\n' || s[fwd] == '\t'))
+		fwd++;
+	if (s[fwd] == '\0')
 	{
 		ptr = (char *)malloc(1 * sizeof(char));
 		ptr[0] = '\0';
 		return (ptr);
 	}
-	back_i = (ft_strlen(s) - 1);
-	while (s[for_i] && (s[for_i] == ' ' || s[for_i] == '\n' || s[for_i] == '\t'))
-		for_i++;
-	while (s[back_i] && (s[back_i] == ' ' || s[back_i] == '\n' || s[back_i] == '\t'))
-		back_i--;
-	ptr = (char*)malloc(((back_i + 2) - for_i) * sizeof(char));
-	if (ptr)
-	{
-		while (for_i < (back_i + 1))
-		{
-			ptr[i] = s[for_i];
-			for_i++;
-			i++;
-		}
-		ptr[i] = '\0';
-		return (ptr);
-	}
-	else
-		return (0);
+	while (s[bwd] && (s[bwd] == ' ' || s[bwd] == '\n' || s[bwd] == '\t'))
+		bwd--;
+	ptr = (char*)malloc(((bwd + 2) - fwd) * sizeof(char));
+	if (!ptr)
+		return (NULL);
+	s = &s[fwd];
+	ft_strncpy(ptr, s, ((bwd + 1) - fwd));
+	ptr[((bwd + 1) - fwd)] = '\0';
+	return (ptr);
 }

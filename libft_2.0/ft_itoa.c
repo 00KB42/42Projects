@@ -12,15 +12,40 @@
 
 #include "libft.h"
 
+int	ft_div_to_zero(int n)
+{
+	int ctr;
+
+	ctr = 0;
+	while (n > 0)
+	{
+		n = n / 10;
+		ctr++;
+	}
+	return (ctr);
+}
+
+char	*ft_num_to_str(int n, int ctr, char *ptr, int neg)
+		{
+			ptr[ctr] = '\0';
+			while (n > 0)
+			{
+				ptr[ctr - 1] = (n % 10) + '0';
+				n = n / 10;
+				ctr--;
+			}
+		if (neg == 1)
+			ptr[ctr - 1] = '-';
+		return (ptr);
+		}
+
 char	*ft_itoa(int n)
 {
 	char	*ptr;
 	int		ctr;
-	int		cpy;
 	int		neg;
 
 	ctr = 0;
-	cpy = 0;
 	neg = 0;
 	if (n == 0)
 		ptr = "0";
@@ -34,21 +59,8 @@ char	*ft_itoa(int n)
 		n = (n * -1);
 		ctr++;
 	}
-	cpy = n;
-	while (cpy > 0)
-	{
-		cpy = cpy / 10;
-		ctr++;
-	}
-	ptr = (char*)malloc((ctr + 1) * sizeof(char));
-	ptr[ctr] = '\0';
-	while (n > 0)
-	{
-		ptr[ctr - 1] = (n % 10) + '0';
-		n = n / 10;
-		ctr--;
-	}
-	if (neg == 1)
-		ptr[ctr - 1] = '-';
+	ptr = (char*)malloc((ctr + (ft_div_to_zero(n) + 1)) * sizeof(char));
+	ctr = ft_div_to_zero(n) + neg;
+	ft_num_to_str(n, ctr, ptr, neg);
 	return (ptr);
 }

@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strnstr(const char *hsk, const char *ndl, size_t len)
 {
 	size_t		ndl_ctr;
 	size_t		hsk_ctr;
@@ -20,19 +20,19 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 
 	ndl_ctr = 0;
 	hsk_ctr = 0;
-	if (needle[ndl_ctr] == '\0')
-		return ((char *)haystack);
-	while (haystack[hsk_ctr] && hsk_ctr < len)
+	if (ndl[ndl_ctr] == '\0')
+		return ((char *)hsk);
+	while (hsk[hsk_ctr] && hsk_ctr < len)
 	{
-		if (needle[ndl_ctr] == haystack[hsk_ctr])
+		if (ndl[ndl_ctr] == hsk[hsk_ctr])
 		{
-			ptr_match = &haystack[hsk_ctr];
-			while (needle[ndl_ctr] == haystack[hsk_ctr] && needle[ndl_ctr] && haystack[hsk_ctr])
+			ptr_match = &hsk[hsk_ctr];
+			while (ndl[ndl_ctr] == hsk[hsk_ctr] && ndl[ndl_ctr] && hsk[hsk_ctr])
 			{
 				ndl_ctr++;
 				hsk_ctr++;
 			}
-			if (needle[ndl_ctr] == '\0' && hsk_ctr < len)
+			if (ndl[ndl_ctr] == '\0' && hsk_ctr < len)
 				return ((char *)ptr_match);
 			ndl_ctr = 0;
 		}
