@@ -14,30 +14,28 @@
 
 char	*ft_strnstr(const char *hsk, const char *ndl, size_t len)
 {
-	size_t		ndl_ctr;
-	size_t		hsk_ctr;
-	const char	*ptr_match;
+	size_t		ndl_i;
+	size_t		hsk_i;
+	size_t		match;
+	const char	*ptr;
 
-	ndl_ctr = 0;
-	hsk_ctr = 0;
-	if (ndl[ndl_ctr] == '\0')
+	ndl_i = 0;
+	hsk_i = 0;
+	match = ft_strlen(ndl);
+	if (ndl[ndl_i] == '\0')
 		return ((char *)hsk);
-	while (hsk[hsk_ctr] && hsk_ctr < len)
+	while (hsk[hsk_i] && hsk_i < len)
 	{
-		if (ndl[ndl_ctr] == hsk[hsk_ctr])
+		if (match == ndl_i)
 		{
-			ptr_match = &hsk[hsk_ctr];
-			while (ndl[ndl_ctr] == hsk[hsk_ctr] && ndl[ndl_ctr] && hsk[hsk_ctr])
-			{
-				ndl_ctr++;
-				hsk_ctr++;
-			}
-			if (ndl[ndl_ctr] == '\0' && hsk_ctr < len)
-				return ((char *)ptr_match);
-			ndl_ctr = 0;
+				ptr = &hsk[hsk_i - match];
+				return ((char*)ptr);
 		}
+		if (ndl[ndl_i] == hsk[hsk_i] && ndl[ndl_i] && hsk[hsk_i])
+			ndl_i++;
 		else
-			hsk_ctr++;
+			ndl_i = 0;
+		hsk_i++;
 	}
 	return (NULL);
 }
