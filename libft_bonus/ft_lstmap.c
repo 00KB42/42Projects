@@ -12,25 +12,31 @@
 
 #include "libft.h"
 
+int ft_lst_ctr (t_list *lst)
+{
+	int		i;
+
+	i = 0;
+	while (lst->next != NULL)
+	{
+		i++;
+		lst = lst->next;
+	}
+	i++;
+	return (i);
+}
+
 t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
 	int		i;
 	int		ctr;
 	t_list	*ptr;
 
-	i = 0;
-	ptr = lst;
-	while (ptr->next != NULL)
-	{
-		i++;
-		ptr = ptr->next;
-	}
-	i++;
-	ptr = lst;
+	ctr = 0;
+	i = ft_lst_ctr(lst);
 	ptr = (struct s_list*)malloc(i * sizeof(t_list));
 	if (!ptr)
 		return (NULL);
-	ctr = 0;
 	while (ctr < i)
 	{
 		ptr[ctr].next = &ptr[ctr + 1];
