@@ -12,9 +12,9 @@
 
 #include "libft.h"
 
-int	ft_div_to_zero(int n)
+int		ft_div_to_zero(int n)
 {
-	int ctr;
+	int		ctr;
 
 	ctr = 0;
 	while (n > 0)
@@ -26,18 +26,18 @@ int	ft_div_to_zero(int n)
 }
 
 char	*ft_num_to_str(int n, int ctr, char *ptr, int neg)
-		{
-			ptr[ctr] = '\0';
-			while (n > 0)
-			{
-				ptr[ctr - 1] = (n % 10) + '0';
-				n = n / 10;
-				ctr--;
-			}
-		if (neg == 1)
-			ptr[ctr - 1] = '-';
-		return (ptr);
-		}
+{
+	ptr[ctr] = '\0';
+	while (n > 0)
+	{
+		ptr[ctr - 1] = (n % 10) + '0';
+		n = n / 10;
+		ctr--;
+	}
+	if (neg == 1)
+		ptr[ctr - 1] = '-';
+	return (ptr);
+}
 
 char	*ft_itoa(int n)
 {

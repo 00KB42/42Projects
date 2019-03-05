@@ -28,8 +28,8 @@ char	*ft_strstr(const char *hsk, const char *ndl)
 	{
 		if (match == ndl_i)
 		{
-				ptr = &hsk[hsk_i - match];
-				return ((char*)ptr);
+			ptr = &hsk[hsk_i - match];
+			return ((char*)ptr);
 		}
 		if (ndl[ndl_i] == hsk[hsk_i] && ndl[ndl_i] && hsk[hsk_i])
 			ndl_i++;

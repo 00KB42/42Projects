@@ -33,15 +33,26 @@ int		ft_wrd_ctr(char const *s, char c)
 	return (wrd_cnt);
 }
 
+int		wrd_len(char const *s, int i, char c)
+{
+	int		len;
+
+	len = 0;
+	while (s[i] && s[i] != c)
+	{
+		i++;
+		len++;
+	}
+	return (len);
+}
+
 char	**ft_strsplit(char const *s, char c)
 {
 	int		i;
 	int		j;
-	int		start;
 	int		len;
 	char	**array;
 
-	start = 0;
 	len = 0;
 	i = 0;
 	j = 0;
@@ -52,14 +63,9 @@ char	**ft_strsplit(char const *s, char c)
 			i++;
 		else
 		{
-			start = i;
-			while (s[i] && s[i] != c)
-			{
-				i++;
-				len++;
-			}
-			array[j] = ft_strsub(s, start, len);
-			len = 0;
+			len = wrd_len(s, i, c);
+			array[j] = ft_strsub(s, i, len);
+			i = len + i;
 			j++;
 		}
 	}

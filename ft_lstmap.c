@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int ft_lst_ctr (t_list *lst)
+int		ft_lst_ctr(t_list *lst)
 {
 	int		i;
 

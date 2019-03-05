@@ -21,7 +21,7 @@ int	ft_atoi(const char *str)
 	i = 0;
 	int_nbr = 0;
 	is_neg = 1;
-	while (str[i] == ' ' || str[i] == '\f' || str[i] == '\n' || 
+	while (str[i] == ' ' || str[i] == '\f' || str[i] == '\n' ||
 		str[i] == '\r' || str[i] == '\t' || str[i] == '\v')
 		i++;
 	if (!(str[i + 1] >= '0' && str[i + 1] <= '9'))
