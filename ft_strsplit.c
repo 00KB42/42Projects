@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int		ft_wrd_ctr(char const *s, char c)
+static int	ft_wrd_ctr(char const *s, char c)
 {
 	int		i;
 	int		wrd_cnt;
@@ -33,7 +33,7 @@ int		ft_wrd_ctr(char const *s, char c)
 	return (wrd_cnt);
 }
 
-int		wrd_len(char const *s, int i, char c)
+static int	wrd_len(char const *s, int i, char c)
 {
 	int		len;
 

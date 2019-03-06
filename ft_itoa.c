@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int		ft_div_to_zero(int n)
+static int	ft_div_to_zero(int n)
 {
 	int		ctr;
 
@@ -25,7 +25,7 @@ int		ft_div_to_zero(int n)
 	return (ctr);
 }
 
-char	*ft_num_to_str(int n, int ctr, char *ptr, int neg)
+static char	*ft_num_to_str(int n, int ctr, char *ptr, int neg)
 {
 	ptr[ctr] = '\0';
 	while (n > 0)

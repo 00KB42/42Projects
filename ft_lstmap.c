@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int		ft_lst_ctr(t_list *lst)
+static int  ft_lst_ctr(t_list *lst)
 {
 	int		i;
 
@@ -26,7 +26,7 @@ int		ft_lst_ctr(t_list *lst)
 	return (i);
 }
 
-t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
+t_list      *ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
 	int		i;
 	int		ctr;
