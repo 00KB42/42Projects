@@ -60,6 +60,8 @@ char	*ft_itoa(int n)
 		ctr++;
 	}
 	ptr = (char*)malloc((ctr + (ft_div_to_zero(n) + 1)) * sizeof(char));
+    if (!ptr)
+        return (NULL);
 	ctr = ft_div_to_zero(n) + neg;
 	ft_num_to_str(n, ctr, ptr, neg);
 	return (ptr);

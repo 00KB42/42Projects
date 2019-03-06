@@ -14,17 +14,14 @@
 
 char	*ft_strmap(char const *s, char (*f)(char))
 {
-	int		i;
-	int		j;
-	char	*ptr;
-
-	i = 0;
-	j = 0;
-	while (s[i])
-	{
-		ptr = (char*)malloc(sizeof(char) * (i + 1));
-		i++;
-	}
+    char	*ptr;
+    int		j;
+    j = 0;
+    if (s == NULL || f == NULL)
+        return (NULL);
+    ptr = (char*)malloc(sizeof(char) * (ft_strlen(s) + 1));
+    if (ptr)
+    {
 	while (s[j])
 	{
 		ptr[j] = (f(s[j]));
@@ -32,4 +29,7 @@ char	*ft_strmap(char const *s, char (*f)(char))
 	}
 	ptr[j] = '\0';
 	return (ptr);
+    }
+    else
+        return (NULL);
 }

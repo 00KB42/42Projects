@@ -18,7 +18,7 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 	char	*ptr;
 
 	i = 0;
-	ptr = (char*)malloc(len * sizeof(char));
+	ptr = (char*)malloc((len + 1) * sizeof(char));
 	if (ptr)
 	{
 		while (s[start] && i < len)
@@ -27,6 +27,7 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 			start++;
 			i++;
 		}
+        ptr[i] = '\0';
 		return (ptr);
 	}
 	else
