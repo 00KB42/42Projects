@@ -19,6 +19,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		len_s1;
 	int		len_s2;
 
+    if (!s1 || !s2)
+        return (NULL);
 	i = 0;
 	len_s1 = ft_strlen(s1);
 	len_s2 = ft_strlen(s2);

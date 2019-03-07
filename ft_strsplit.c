@@ -56,6 +56,8 @@ char	**ft_strsplit(char const *s, char c)
 	len = 0;
 	i = 0;
 	j = 0;
+    if (!s || !c)
+        return (NULL);
 	array = (char**)malloc(((ft_wrd_ctr(s, c)) + 1) * sizeof(char*));
     if (!array)
         return (NULL);
