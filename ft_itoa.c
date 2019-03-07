@@ -48,9 +48,15 @@ char	*ft_itoa(int n)
 	ctr = 0;
 	neg = 0;
 	if (n == 0)
-		ptr = "0";
+    {
+        ptr = ft_strnew(1);
+        ft_strcpy(ptr, "0");
+    }
 	if (n == -2147483648)
-		ptr = "-2147483648";
+    {
+        ptr = ft_strnew(11);
+        ft_strcpy(ptr, "-2147483648");
+    }
 	if (n == 0 || n == -2147483648)
 		return (ptr);
 	if (n < 0)
