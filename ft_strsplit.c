@@ -50,10 +50,8 @@ char	**ft_strsplit(char const *s, char c)
 {
 	int		i;
 	int		j;
-	int		len;
 	char	**array;
 
-	len = 0;
 	i = 0;
 	j = 0;
 	if (!s || !c)
@@ -67,9 +65,8 @@ char	**ft_strsplit(char const *s, char c)
 			i++;
 		else
 		{
-			len = wrd_len(s, i, c);
-			array[j] = ft_strsub(s, i, len);
-			i = len + i;
+			array[j] = ft_strsub(s, i, (wrd_len(s, i, c)));
+			i = wrd_len(s, i, c) + i;
 			j++;
 		}
 	}

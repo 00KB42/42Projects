@@ -11,6 +11,12 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+static char *ft_trim_null(char *ptr)
+{
+    ptr = (char *)malloc(1 * sizeof(char));
+    ptr[0] = '\0';
+    return (ptr);
+}
 
 char	*ft_strtrim(char const *s)
 {
@@ -26,12 +32,8 @@ char	*ft_strtrim(char const *s)
 	bwd = (ft_strlen(s) - 1);
 	while (s[fwd] && (s[fwd] == ' ' || s[fwd] == '\n' || s[fwd] == '\t'))
 		fwd++;
-	if (s[fwd] == '\0')
-	{
-		ptr = (char *)malloc(1 * sizeof(char));
-		ptr[0] = '\0';
-		return (ptr);
-	}
+    if (!s[fwd])
+        return (ft_trim_null((char *) s));
 	while (s[bwd] && (s[bwd] == ' ' || s[bwd] == '\n' || s[bwd] == '\t'))
 		bwd--;
 	ptr = (char*)malloc(((bwd + 2) - fwd) * sizeof(char));
