@@ -39,4 +39,3 @@ char	*ft_strstr(const char *hsk, const char *ndl)
 	}
 	return (NULL);
 }
-

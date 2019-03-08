@@ -55,7 +55,7 @@ char	*ft_itoa(int n)
 	if (n == -2147483648)
 	{
 		ptr = ft_strnew(11);
-		ft_strcpy(ptr, "-2147483648");
+		ft_strcpy (ptr, "-2147483648");
 	}
 	if (n == 0 || n == -2147483648)
 		return (ptr);
