@@ -39,6 +39,23 @@ static char	*ft_num_to_str(int n, int ctr, char *ptr, int neg)
 	return (ptr);
 }
 
+static char *ft_size_eval(int n, char *ptr)
+{
+    if (n == 0)
+    {
+        ptr = ft_strnew(1);
+        ft_strcpy(ptr, "0");
+        return (ptr);
+    }
+    if (n == -2147483648)
+    {
+        ptr = ft_strnew(11);
+        ft_strcpy (ptr, "-2147483648");
+        return (ptr);
+    }
+    return (ptr);
+}
+
 char	*ft_itoa(int n)
 {
 	char	*ptr;
@@ -47,18 +64,12 @@ char	*ft_itoa(int n)
 
 	ctr = 0;
 	neg = 0;
-	if (n == 0)
-	{
-		ptr = ft_strnew(1);
-		ft_strcpy(ptr, "0");
-	}
-	if (n == -2147483648)
-	{
-		ptr = ft_strnew(11);
-		ft_strcpy (ptr, "-2147483648");
-	}
-	if (n == 0 || n == -2147483648)
-		return (ptr);
+    ptr = NULL;
+    if (n == 0 || n == -2147483648)
+    {
+        ptr = ft_size_eval(n, ptr);
+        return (ptr);
+    }
 	if (n < 0)
 	{
 		neg = 1;
