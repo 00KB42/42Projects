@@ -46,7 +46,7 @@ static int	wrd_len(char const *s, int i, char c)
 	return (len);
 }
 
-char	**ft_strsplit(char const *s, char c)
+char		**ft_strsplit(char const *s, char c)
 {
 	int		i;
 	int		j;

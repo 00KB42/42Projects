@@ -11,12 +11,13 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+
 int	ft_atoi(const char *str)
 {
 	int	i;
 	int	int_nbr;
 	int	is_neg;
-	
+
 	i = 0;
 	int_nbr = 0;
 	is_neg = 1;
@@ -37,4 +38,3 @@ int	ft_atoi(const char *str)
 	}
 	return (int_nbr * is_neg);
 }
-

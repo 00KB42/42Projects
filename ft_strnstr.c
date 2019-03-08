@@ -11,12 +11,13 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-char    *ft_strnstr(const char *hsk, const char *ndl, size_t len)
+
+char	*ft_strnstr(const char *hsk, const char *ndl, size_t len)
 {
 	size_t			ndl_i;
 	size_t			hsk_i;
 	const char		*ptr;
-	
+
 	ndl_i = 0;
 	hsk_i = 0;
 	if (ndl[ndl_i] == '\0')
