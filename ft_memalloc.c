@@ -31,7 +31,3 @@ void	*ft_memalloc(size_t size)
 	else
 		return (NULL);
 }
-/*
-**  how do we account for other non-int variable types?
-**  size of (int)?
-*/

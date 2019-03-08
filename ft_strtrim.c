@@ -20,8 +20,8 @@ char	*ft_strtrim(char const *s)
 	int		bwd;
 
 	if (!s)
-        return (NULL);
-    i = 0;
+		return (NULL);
+	i = 0;
 	fwd = 0;
 	bwd = (ft_strlen(s) - 1);
 	while (s[fwd] && (s[fwd] == ' ' || s[fwd] == '\n' || s[fwd] == '\t'))
