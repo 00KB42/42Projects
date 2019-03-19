@@ -33,7 +33,7 @@ static int	ft_wrd_ctr(char const *s, char c)
 	return (wrd_cnt);
 }
 
-static int	wrd_len(char const *s, int i, char c)
+static int	ft_wrd_len(char const *s, int i, char c)
 {
 	int		len;
 
@@ -65,8 +65,8 @@ char		**ft_strsplit(char const *s, char c)
 			i++;
 		else
 		{
-			array[j] = ft_strsub(s, i, (wrd_len(s, i, c)));
-			i = wrd_len(s, i, c) + i;
+			array[j] = ft_strsub(s, i, (ft_wrd_len(s, i, c)));
+			i = ft_wrd_len(s, i, c) + i;
 			j++;
 		}
 	}
