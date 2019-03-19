@@ -91,3 +91,6 @@ clean:
 fclean: clean
 
 	@/bin/rm -rf $(NAME)
+
+re: fclean all
+
