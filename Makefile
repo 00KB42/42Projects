@@ -29,6 +29,7 @@ all: $(NAME)
 $(NAME):
 	$(CC) $(CFLAGS)	$(SRC) -I$(HDR)
 	ar rc $(NAME) $(OFL)
+	ranlib *.a
 
 clean:
 	/bin/rm -f $(OFL)
