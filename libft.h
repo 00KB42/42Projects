@@ -81,4 +81,12 @@ void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 t_list				*ft_lstnew(void const *content, size_t content_size);
+int                 ft_div_to_zero(int n);
+char                *ft_num_to_str(int n, int ctr, char *ptr, int neg);
+char                *ft_size_eval(int n, char *ptr);
+int                 ft_wrd_ctr(char const *s, char c);
+int                 ft_wrd_len(char const *s, int i, char c);
+char                *ft_trim_null(char *ptr);
+
+
 #endif

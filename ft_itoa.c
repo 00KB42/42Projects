@@ -12,50 +12,6 @@
 
 #include "libft.h"
 
-static int	ft_div_to_zero(int n)
-{
-	int		ctr;
-
-	ctr = 0;
-	while (n > 0)
-	{
-		n = n / 10;
-		ctr++;
-	}
-	return (ctr);
-}
-
-static char	*ft_num_to_str(int n, int ctr, char *ptr, int neg)
-{
-	ptr[ctr] = '\0';
-	while (n > 0)
-	{
-		ptr[ctr - 1] = (n % 10) + '0';
-		n = n / 10;
-		ctr--;
-	}
-	if (neg == 1)
-		ptr[ctr - 1] = '-';
-	return (ptr);
-}
-
-static char	*ft_size_eval(int n, char *ptr)
-{
-	if (n == 0)
-	{
-		ptr = ft_strnew(1);
-		ft_strcpy(ptr, "0");
-		return (ptr);
-	}
-	if (n == -2147483648)
-	{
-		ptr = ft_strnew(11);
-		ft_strcpy(ptr, "-2147483648");
-		return (ptr);
-	}
-	return (ptr);
-}
-
 char		*ft_itoa(int n)
 {
 	char	*ptr;
